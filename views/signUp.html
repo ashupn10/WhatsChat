@@ -14,11 +14,11 @@
 		<h1>SignUp</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="#" method="post">
-					<input class="text" type="text" name="Name" placeholder="Name" required="">
-					<input class="text email" type="email" name="email" placeholder="Email" required="">
-					<input class="text" type="tel" name="mobile" placeholder="Mobile" required="">
-					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+				<form id="signForm">
+					<input class="text" type="text" name="Name" placeholder="Name" id="name" required="">
+					<input class="text email" type="email" name="email" placeholder="Email" id="email" required="">
+					<input class="text" type="tel" name="mobile" placeholder="Mobile" id="mobile" required="">
+					<input class="text w3lpass" type="password" name="password" id="password" placeholder="Confirm Password" required="">
 					<div class="wthree-text">
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">
@@ -33,4 +33,6 @@
 		</div>
 	</div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="signUp.js"></script>
 </html>
