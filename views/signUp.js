@@ -16,6 +16,7 @@ async function postFormData(){
             email:email,
             password:password
         })
+        console.log(response);
         alert(response.data.message);
     }catch(err){
         console.log(err);
