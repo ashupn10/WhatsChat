@@ -14,6 +14,7 @@ async function postloginform(e){
     })
     localStorage.setItem('token',response.data.token);
     alert(`you are logged in`);
+    window.location.href='http://localhost:5500/views/index.html';
 }
 
 ////////////////////////////// Event Listeners///////////////////////////////////
