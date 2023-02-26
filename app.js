@@ -6,7 +6,9 @@ var signupRoutes = require('./routes/signUp');
 const loginRouter=require('./routes/login');
 const sequelize=require('./util/database');
 const User=require('./models/user');
-const { Sequelize } = require('sequelize');
+const message=require('./models/messages');
+
+
 var app = express();
 app.use(cors());
 app.use(express.json());
