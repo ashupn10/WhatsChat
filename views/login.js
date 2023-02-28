@@ -12,9 +12,14 @@ async function postloginform(e){
         username:username,
         password:password
     })
-    localStorage.setItem('token',response.data.token);
-    alert(`you are logged in`);
-    window.location.href='http://localhost:5500/views/index.html';
+    if(response.data.success){
+        console.log(response.data);
+        alert(response.data.message);
+        window.location.href='http://localhost:5500/views/index.html';
+        localStorage.setItem('token',response.data.token);
+    }else{
+        alert(response.data.message);
+    }
 }
 
 ////////////////////////////// Event Listeners///////////////////////////////////
