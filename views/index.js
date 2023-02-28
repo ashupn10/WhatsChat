@@ -7,5 +7,4 @@ async function sendMessage(e){
     const response=await axios.post('http://localhost:3000/index/sendMessage',{message:message},{headers:{'Authentication':token}});
 }
 
-
 formbtn.addEventListener('submit',sendMessage);
