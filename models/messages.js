@@ -9,7 +9,6 @@ const Message=sequelize.define('Message',{
         allowNull:false
     },
     message:Sequelize.STRING,
-
 })
 
 module.exports=Message;

@@ -2,16 +2,6 @@ const jwt=require('jsonwebtoken');
 const bcrypt=require('bcrypt');
 const User = require('../models/user');
 
-function generateToken(id,user){
-    jwt.sign({username:user,userId:id},process.env.JWT_KEY,{expiresIn:'1h'},(err,token)=>{
-        if(err){
-            throw new Error(err);
-        }else{
-            return token;
-        }
-    })
-}
-
 exports.userLogin=async (req,res,next)=>{
     try{
         const username=req.body.username;
@@ -24,7 +14,7 @@ exports.userLogin=async (req,res,next)=>{
         }else{
             bcrypt.compare(password,user.password)
             .then(()=>{
-                jwt.sign({user}, 'privatekey', { expiresIn: '1h' },(err, token) => {
+                jwt.sign({user}, process.env.JWT_KEY, { expiresIn: '1h' },(err, token) => {
                     if(err) { console.log(err) }    
                     res.status(200).json({success:true,message:'user successfully logged',token:token});
                 });

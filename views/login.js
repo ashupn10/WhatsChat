@@ -15,7 +15,7 @@ async function postloginform(e){
     if(response.data.success){
         console.log(response.data);
         alert(response.data.message);
-        window.location.href='http://localhost:5500/views/index.html';
+        window.location.href='http://localhost:3000/index';
         localStorage.setItem('token',response.data.token);
     }else{
         alert(response.data.message);

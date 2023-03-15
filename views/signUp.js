@@ -4,7 +4,8 @@ const signUpForm=document.getElementById('signForm');
 
 /////////////////////////////////////////// Functions//////////////////////////////////
 
-async function postFormData(){
+async function postFormData(e){
+    e.preventDefault();
     try{
         const name=document.getElementById('name').value;
         const email=document.getElementById('email').value;
@@ -16,7 +17,6 @@ async function postFormData(){
             email:email,
             password:password
         })
-        console.log(response);
         alert(response.data.message);
     }catch(err){
         console.log(err);
@@ -27,4 +27,4 @@ async function postFormData(){
 
 ///////////////////////////////////////// EventListeners////////////////////////////////
 
-signUpForm.addEventListener('submit',postFormData)
+signUpForm.addEventListener('submit',postFormData);
