@@ -34,8 +34,8 @@ message.belongsTo(User,{
     as: "users",
     foreign_Key: "Message_Id"
 });
-// sequelize.sync()
-sequelize.sync({force:true})
+sequelize.sync()
+// sequelize.sync({force:true})
 .then(()=>{
     app.listen(3000);
 })
