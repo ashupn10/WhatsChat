@@ -1,7 +1,16 @@
 const formbtn=document.getElementById('sendMessage');
+const messageDiv=document.getElementById('Messages');
 
-async function getMessages(){
 
+async function getMessages(e){
+    const token=localStorage.getItem('token');
+    const response=await axios.get('http://localhost:3000/index/Messages',{headers:{'Authentication':token}});
+    showMessages(response.data);
+}
+function showMessages(arr){
+    arr.forEach(Element=>{
+        const item=document.createElement('li');
+    })
 }
 
 async function sendMessage(e){
@@ -12,4 +21,5 @@ async function sendMessage(e){
     getMessages();
 }
 
+document.addEventListener('DOMContentLoaded',getMessages);
 formbtn.addEventListener('submit',sendMessage);
