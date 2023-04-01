@@ -2,3 +2,18 @@ body{
     text-align: center;
 	background-color: #408b91;
 }
+td,th {
+    padding: 12px 15px;
+}
+tr {
+    background-color: #009879;
+    color: #0f0606;
+    text-align: left;
+}
+tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}

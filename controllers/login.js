@@ -12,6 +12,7 @@ exports.userLogin=async (req,res,next)=>{
         if(!user){
             res.status(200).json({success:false,message:'user not found'});
         }else{
+            console.log(user)
             bcrypt.compare(password,user.password)
             .then(()=>{
                 jwt.sign({user}, process.env.JWT_KEY, { expiresIn: '1h' },(err, token) => {

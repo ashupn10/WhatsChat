@@ -1,9 +1,11 @@
+const User=require('../models/user');
 const Messages=require('../models/messages');
+
 exports.postIndex=async (req,res,next)=>{
     try{
-        await Messages.create({
+        await req.user.createMessage({
             message:req.body.message,
-            userID:req.user.id,
+            email:req.user.email,
         })
         res.status(200).json('Successfully send');
     }catch(err){
@@ -13,7 +15,7 @@ exports.postIndex=async (req,res,next)=>{
 exports.getMessages=async (req,res,next)=>{
     try{
         const message=await Messages.findAll()
-        res.status(200).json(message);
+        res.status(200).json({message:message});
     }catch(err){
         throw new Error(err);
     }

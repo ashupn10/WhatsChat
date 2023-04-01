@@ -13,8 +13,7 @@
 
 	<div>
         <form id="sendMessage">
-            <i></i>
-            <input type="text" name="message" id="message">
+            <input type="text" name="message" id="message" placeholder="message">
             <button type="submit">send</button>
         </form>
     </div>
@@ -22,6 +21,12 @@
 
     <div class="message_div" id="Messages">
         <h3>Messages</h3>
+        <table id="message_table">
+            <tr>
+                <th>User</th>
+                <th>Messages</th>
+            </tr>
+        </table>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

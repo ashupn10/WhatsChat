@@ -11,7 +11,6 @@ const sequelize=require('./util/database');
 const User=require('./models/user');
 const message=require('./models/messages');
 
-
 var app = express();
 app.use(cors());
 app.use(express.json());
@@ -24,16 +23,8 @@ app.use((req,res,next)=>{
     let viewpath=path.join(__dirname,'views');
     res.sendFile(viewpath+`${url}.html`);
 })
-User.belongsTo(message,{
-    through: "messageLink",
-    as: "User_Message",
-    foreign_Key: "UserId"
-});
-message.belongsTo(User,{
-    through: "user_link",
-    as: "users",
-    foreign_Key: "Message_Id"
-});
+User.hasMany(message);
+message.belongsTo(User);
 sequelize.sync()
 // sequelize.sync({force:true})
 .then(()=>{

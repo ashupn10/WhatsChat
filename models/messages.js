@@ -1,7 +1,7 @@
 const Sequelize=require('sequelize');
 const sequelize=require('../util/database');
 
-const Message=sequelize.define('Message',{
+const Message=sequelize.define('message',{
     id:{
         type:Sequelize.INTEGER,
         primaryKey:true,
@@ -9,6 +9,7 @@ const Message=sequelize.define('Message',{
         allowNull:false
     },
     message:Sequelize.STRING,
+    email:Sequelize.STRING,
 })
 
 module.exports=Message;
