@@ -15,7 +15,7 @@ exports.userLogin=async (req,res,next)=>{
             console.log(user)
             bcrypt.compare(password,user.password)
             .then(()=>{
-                jwt.sign({user}, process.env.JWT_KEY, { expiresIn: '1h' },(err, token) => {
+                jwt.sign({user}, process.env.JWT_KEY,(err, token) => {
                     if(err) { console.log(err) }    
                     res.status(200).json({success:true,message:'user successfully logged',token:token});
                 });

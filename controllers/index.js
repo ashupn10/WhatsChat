@@ -14,7 +14,10 @@ exports.postIndex=async (req,res,next)=>{
 }
 exports.getMessages=async (req,res,next)=>{
     try{
-        const message=await Messages.findAll()
+        const message=await Messages.findAll({
+            limit:10,
+            order:[['createdAt','DESC']]
+        })
         res.status(200).json({message:message});
     }catch(err){
         throw new Error(err);
@@ -23,7 +26,7 @@ exports.getMessages=async (req,res,next)=>{
 exports.getLastMessage=async (req,res,next)=>{
     try{
         const message=await Messages.findOne({
-            order: [ [ 'id', 'DESC' ]],
+            order: [ [ 'createdAt', 'DESC' ]],
         });
         res.status(200).json(message);
     }catch(err){
