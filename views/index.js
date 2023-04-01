@@ -8,19 +8,26 @@ async function getMessages(e){
     showMessages(response.data.message);
 }
 function showMessages(arr){
-    console.log(arr);
-    const table=document.getElementById('message_table');
-    arr.forEach(Element=>{
-        const tr=document.createElement('tr');
-        const td=document.createElement('td');
-        const td2=document.createElement('td');
-        td.innerText=Element.message;
-        td2.innerText=Element.email;
-        tr.appendChild(td);
-        tr.appendChild(td2);
-        table.appendChild(tr);
-    })
-    
+    try{
+        console.log(arr);
+        const table=document.getElementById('message_table');
+        while (table.hasChildNodes()){
+            table.removeChild(table.firstChild);
+        }
+        arr.forEach(Element=>{
+            const tr=document.createElement('tr');
+            const td=document.createElement('td');
+            const td2=document.createElement('td');
+            td.innerText=Element.message;
+            td2.innerText=Element.email;
+            tr.appendChild(td);
+            tr.appendChild(td2);
+            table.appendChild(tr);
+        })
+    }
+    catch(err){
+        console.log(err);
+    }
 }
 
 async function sendMessage(e){
@@ -30,6 +37,8 @@ async function sendMessage(e){
     const response=await axios.post('http://localhost:3000/index/sendMessage',{message:message},{headers:{'Authentication':token}});
     getMessages();
 }
+setInterval(getMessages,1000);
+
 
 document.addEventListener('DOMContentLoaded',getMessages);
 formbtn.addEventListener('submit',sendMessage);
