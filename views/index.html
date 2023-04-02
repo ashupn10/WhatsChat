@@ -11,23 +11,53 @@
 </head>
 <body>
 
-	<div>
-        <form id="sendMessage">
-            <input type="text" name="message" id="message" placeholder="message">
-            <button type="submit">send</button>
+    
+    <div>
+        <h3>Create group</h3>
+        <form id="groupForm">
+            <input type="text" name="name" id="grpName" placeholder="group name">
+            <button id="createGroup">Create Group</button>
         </form>
     </div>
     <hr>
-
     <div class="message_div" id="Messages">
-        <h3>Messages</h3>
-        <table id="message_table">
-            <tr>
-                <th>User</th>
-                <th>Messages</th>
-            </tr>
-        </table>
+
     </div>
+    <div class="row">
+        <div class="column">
+            <h3>Groups</h3>
+            <table id="groupTable">
+
+            </table>
+        </div>
+        <div class="column">
+            <h3>Messages</h3>
+            <div>
+                <form id="sendMessage">
+                    <input type="text" name="message" id="message" placeholder="message">
+                    <button type="submit" id="submitForm">send</button>
+                </form>
+            </div>
+            <table id="message_table">
+                <tr>
+                    <th>User</th>
+                    <th style="width: 70%;">Messages</th>
+                </tr>
+            </table>
+        </div>
+        <div class="column">
+            <h3>Users</h3>
+            <div>
+                <form id="AddUserForm">
+                    <input type="text" name="Useremail" id="Useremail" placeholder="Useremail">
+                    <button type="submit">Add User</button>
+                </form>
+            </div>
+            <table id="UserTable">
+
+            </table>
+        </div>
+      </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="index.js"></script>

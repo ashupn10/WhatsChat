@@ -10,6 +10,7 @@ const indexRouter=require('./routes/index');
 const sequelize=require('./util/database');
 const User=require('./models/user');
 const message=require('./models/messages');
+const Group=require('./models/group');
 
 var app = express();
 app.use(cors());
@@ -25,6 +26,10 @@ app.use((req,res,next)=>{
 })
 User.hasMany(message);
 message.belongsTo(User);
+Group.hasMany(message);
+message.belongsTo(Group);
+User.belongsToMany(Group,{through:'usergroup'});
+Group.belongsToMany(User,{through:'usergroup'});
 sequelize.sync()
 // sequelize.sync({force:true})
 .then(()=>{
