@@ -11,6 +11,7 @@ const sequelize=require('./util/database');
 const User=require('./models/user');
 const message=require('./models/messages');
 const Group=require('./models/group');
+const Admin = require('./models/admin');
 
 var app = express();
 app.use(cors());
@@ -30,6 +31,9 @@ Group.hasMany(message);
 message.belongsTo(Group);
 User.belongsToMany(Group,{through:'usergroup'});
 Group.belongsToMany(User,{through:'usergroup'});
+Group.belongsToMany(Admin,{through:'GroupAdmin'});
+Admin.belongsToMany(Group,{through:'GroupAdmin'});
+// 
 sequelize.sync()
 // sequelize.sync({force:true})
 .then(()=>{
