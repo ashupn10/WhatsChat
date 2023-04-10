@@ -9,7 +9,6 @@ const Message=sequelize.define('message',{
         allowNull:false
     },
     message:Sequelize.STRING,
-    email:Sequelize.STRING,
 })
 
 module.exports=Message;
